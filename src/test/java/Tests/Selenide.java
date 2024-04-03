@@ -5,7 +5,10 @@ import Pages.MainPage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -41,6 +44,9 @@ public class Selenide {
         addTitle.sendKeys(title);
         addDescription.sendKeys(description);
         saveButton.click();
+        $(byText(link)).shouldBe(visible);
+        $(byText(title)).shouldBe(visible);
+        $(byText(description)).shouldBe(visible);
     }
 
     @Test
@@ -52,6 +58,7 @@ public class Selenide {
         addName.sendKeys(partnerName);
         addLink.sendKeys(link);
         saveButton.click();
+        $(byText(partnerName)).shouldBe(visible);
         // страница выдает 500 ошибку, в админке работает раз через раз
     }
 
@@ -65,5 +72,7 @@ public class Selenide {
         text.sendKeys(title);
         addDescription.sendKeys(description);
         saveButton.click();
+        $(byText(title)).shouldBe(visible);
+        $(byText(description)).shouldBe(visible);
     }
 }

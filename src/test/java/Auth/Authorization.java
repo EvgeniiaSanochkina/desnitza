@@ -20,6 +20,6 @@ public class Authorization {
                 .extract().response();
 
         return response.jsonPath().getString("accessToken");
-        // а можно написать response.json().accessToken?
+
     }
 }
