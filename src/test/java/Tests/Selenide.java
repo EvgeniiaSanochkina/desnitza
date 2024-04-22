@@ -59,7 +59,6 @@ public class Selenide {
         addLink.sendKeys(link);
         saveButton.click();
         $(byText(partnerName)).shouldBe(visible);
-        // страница выдает 500 ошибку, в админке работает раз через раз
     }
 
     @org.junit.jupiter.api.Test
